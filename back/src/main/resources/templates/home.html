@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div class="jumbotron">
+        <h1>APOLIO</h1>
+        <p class="lead">회원 기능</p>
+        <p>
+            <a class="btn btn-lg btn-secondary" href="/user/new">회원 가입</a>
+            <a class="btn btn-lg btn-secondary" href="/users">회원 목록</a>
+        </p>
+        <p class="lead">태그 기능</p>
+        <p>
+            <a class="btn btn-lg btn-dark" href="/tag/new">태그 등록</a>
+            <a class="btn btn-lg btn-dark" href="/tags">태그 목록</a>
+        </p>
+        <p class="lead">게시글 기능</p>
+        <p>
+            <a class="btn btn-lg btn-info" href="/board">게시글 작성</a>
+            <a class="btn btn-lg btn-info" href="/boards">게시글 목록</a>
+        </p>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <form th:object="${boardSearch}" class="form-inline">
+            <div class="form-group mx-sm-1 mb-2">
+                <select th:field="*{tagName}" class="form-control">
+                    <option value="">태그</option>
+                    <option th:each="tag : ${tags}"
+                            th:value="${tag.name}"
+                            th:text="${tag.name}"/>
+                </select>
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" th:field="*{articleTitle}" class="formcontrol" placeholder="게시물 이름"/>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">검색</button>
+        </form>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>태그</th>
+                <th>제목</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boards}">
+                <td th:text="${board.id}"></td>
+                <td th:text="${board.tagArticles[0].tag.name}"></td>
+                <td th:text="${board.title}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>

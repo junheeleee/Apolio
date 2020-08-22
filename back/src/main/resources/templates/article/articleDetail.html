@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+    <div class="form-group">
+        <label th:for="title">제목</label>
+        <input type="text" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요">
+    </div>
+    <div class="form-group">
+        <label th:for="content">내용</label>
+        <input type="text" th:field="*{content}" class="form-control" placeholder="내용을 입력하세요">
+    </div>
+    <div class="form-group">
+        <label th:for="img_thumb">이미지</label>
+        <input type="text" th:field="*{img_thumb}" class="form-control" placeholder="이미지 경로를 입력하세요">
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>아이디</th>
+                <th>댓글</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="comment : ${tags}">
+                <!--                <td th:text="${comment.id}"></td>-->
+                <!--                <td th:text="${tag.name}"></td>-->
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>
